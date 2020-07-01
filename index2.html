@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>	
+<html>
+<head>
+	<html lang="en">
+	<meta charset = "UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Test</title>
+	</head>
+	<body>
+
+<script type="text/javascript">
+
+	
+function yourScore() {
+    var sum = 0;
+    return function(num){
+        return(`Your score is ${sum += num}`)
+    }
+}
+const score = yourScore();
+
+function random() {
+	return (Math.floor(Math.random() * 3));
+}
+function Question() {
+const questions = ['Is javascript the best language', "Who teaches the class", "Is it summer yet?"];
+	if (random() === 0){
+		console.log(questions[0])
+		console.log("0: Yes \n1: No")
+		anwser1();
+	} else if (random() === 1){
+		console.log(questions[1])
+		console.log("0: John \n1: Bob \n2: Jonas")
+		answer2();
+	} else {
+		console.log(questions[2])
+		console.log("0: Yes \n1: No")
+		answer3();
+	}
+
+}
+
+function anwser1() {
+	let anwser1 = prompt("What is the correct anwser");
+		if (anwser1 === null) {
+			Question();
+		}
+		if(anwser1 === "exit"){
+			return "Bye";
+			
+		} else if (Number(anwser1) === 0){
+			console.log("Correct!");
+			console.log(score(1));
+			return Question();
+		} else {
+			console.log("Wrong!");
+			console.log(score(0));
+			return Question();
+		}
+}
+
+function answer2() {
+	let anwser2 = prompt("What is the correct anwser");
+		if (anwser2 === null) {
+				Question();
+		}
+		if(anwser2 === "exit"){
+			return "Bye";
+		} else if (Number(anwser2) !== 2){
+			console.log("Wrong!");
+			console.log(score(0));
+			return Question();
+		} else {
+				console.log("Correct!");
+				console.log(score(1));
+				return Question();
+		}
+}
+
+function answer3() {
+	let anwser3 = prompt("What is the correct anwser");
+		if (anwser3 === null) {
+				Question();
+			}
+		if(anwser3 === "exit"){
+			return "Bye";
+		} else if (Number(anwser3) === 0){
+			console.log("Yes it is!");
+			console.log(score(1));
+			return Question();
+		} else {
+			console.log("Wrong, it is summer!");
+			console.log(score(0));
+			return Question();
+	}
+}
+
+Question();
+
+
+</script>
+	</body>
